@@ -15,6 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="50%"
+            android:textColor="@color/colorGrey"
             android:textSize="50dp"
             android:textAlignment="center"
             android:gravity="center_vertical"
@@ -32,25 +33,28 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@color/colorGrey"
+        android:gravity="center"
         >
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:text="50%"
+            android:textColor="@color/colorRed"
             android:textSize="50dp"
             android:textAlignment="center"
-            android:gravity="center_vertical"
+            android:id="@+id/percentage"
             />
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="conteneur rouge"
+            android:layout_height="wrap_content"
+            android:text="conteneur gris"
             android:textSize="30dp"
-            android:gravity="center_vertical"
             android:textAlignment="center"
             android:textColor="@color/colorWhite"
+            android:layout_below="@+id/percentage"
             />
     </RelativeLayout>
 

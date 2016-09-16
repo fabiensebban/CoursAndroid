@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="2">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/colorRed"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="50%"
+                android:textColor="@color/colorGrey"
+                android:textSize="50dp"
+                android:textAlignment="center"
+                android:gravity="center_vertical"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="conteneur rouge"
+                android:textSize="30dp"
+                android:gravity="bottom"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhite"
+                android:layout_marginBottom="20dp"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/colorGrey"
+            android:gravity="center"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="50%"
+                android:textColor="@color/colorRed"
+                android:textSize="50dp"
+                android:textAlignment="center"
+                android:id="@+id/percentage"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="conteneur gris"
+                android:textSize="30dp"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhite"
+                android:layout_below="@+id/percentage"
+                />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Conteneurs"
+            android:textAlignment="center"
+            android:background="@color/colorBlack"
+            android:textColor="@color/colorWhite"
+            android:gravity="center"
+            />
+
+    </RelativeLayout>
+
+</RelativeLayout>
