@@ -23,16 +23,18 @@ public class MainActivity extends AppCompatActivity {
 
         final ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
 
-        mainListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), listAdapter.getItem(position), Toast.LENGTH_LONG).show();
-            }
-        });
-
         listAdapter.add("First");
         listAdapter.add("Second");
         listAdapter.add("Third");
+
+        mainListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), listAdapter.getItem(position) + " Removed", Toast.LENGTH_LONG).show();
+
+                listAdapter.remove(listAdapter.getItem(position));
+            }
+        });
 
 
         mainListView.setAdapter(listAdapter);
