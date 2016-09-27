@@ -14,6 +14,9 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.StringTokenizer;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -25,18 +28,41 @@ public class MainActivity extends AppCompatActivity {
     // Permet d'initialiser l'appli
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        int i = 0;
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_ex4);
+
+        users = new ArrayList<>();
+
+        users.add(new Users("nom1", "email1", "prenom1"));
+        users.add(new Users("nom2", "email2", "prenom2"));
+        users.add(new Users("nom3", "email3", "prenom3"));
+
 
         mainListView = (ListView)findViewById(R.id.toto);
         mainButtonView = (Button)findViewById(R.id.confirmButton);
 
         ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_single_choice);
 
-        listAdapter.add("First");
-        listAdapter.add("Second");
-        listAdapter.add("Third");
+        List<HashMap<String, String>> list = new ArrayList<>();
 
+
+        while(i < users.size())
+        {
+            HashMap<String, String> element = new HashMap<String, String>();
+            element.put("Nom", users.get(i).getNom() + " " + users.get(i).getPrenom());
+            element.put("Email", users.get(i).getEmail());
+            list.add(element);
+            i++;
+        }
+
+
+        SimpleAdapter adapter = new SimpleAdapter(this,
+                list,
+                android.R.layout.simple_list_item_2,
+                new String[]{"Nom", "Email"},
+                new int[] {android.R.id.text1, android.R.id.text2});
         /*
         mainListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -50,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 */
 
         mainListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-        mainListView.setAdapter(listAdapter);
+        mainListView.setAdapter(adapter);
 
         mainButtonView.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
