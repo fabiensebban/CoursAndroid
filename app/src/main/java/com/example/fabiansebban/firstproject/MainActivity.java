@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         mainListView = (ListView)findViewById(R.id.toto);
         mainButtonView = (Button)findViewById(R.id.confirmButton);
 
-        ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_multiple_choice);
+        ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_single_choice);
 
         listAdapter.add("First");
         listAdapter.add("Second");
