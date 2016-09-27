@@ -19,9 +19,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_ex4);
-        mainListView = (ListView)findViewById(R.id.simple_list_item_1);
+        mainListView = (ListView)findViewById(R.id.toto);
 
-        final ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
+        ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_multiple_choice);
 
         listAdapter.add("First");
         listAdapter.add("Second");
@@ -30,12 +30,13 @@ public class MainActivity extends AppCompatActivity {
         mainListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), listAdapter.getItem(position) + " Removed", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), view + " Removed", Toast.LENGTH_LONG).show();
 
-                listAdapter.remove(listAdapter.getItem(position));
+                ArrayAdapter adapterL = (ArrayAdapter)parent.getAdapter();
+
+                adapterL.remove(adapterL.getItem(position));
             }
         });
-
 
         mainListView.setAdapter(listAdapter);
     }
